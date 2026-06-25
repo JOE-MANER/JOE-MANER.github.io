@@ -1,0 +1,1295 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>广州三曜电商有限公司 — MENSURE 男士精密理容</title>
+<meta name="description" content="广州三曜电商有限公司旗下品牌 MENSURE，以精密工艺与都市设计重新定义男士理容体验。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Rajdhani:wght@500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+<style>
+/* ══════════════════════════════════════════
+   MENSURE — Design System
+   ══════════════════════════════════════════ */
+
+:root {
+  /* Palette */
+  --obsidian:       #0C0E10;
+  --forged-steel:   #191C1F;
+  --gunmetal:       #23272C;
+  --machine-gray:   #8B969E;
+  --burnished-brass:#C8966A;
+  --brass-light:    #DEB887;
+  --marble-stone:   #ECE7E0;
+  --pure-white:     #FAFAF8;
+
+  /* Type Scale */
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.25rem;
+  --text-2xl: 1.5rem;
+  --text-3xl: clamp(2rem, 4vw, 3.25rem);
+  --text-4xl: clamp(2.75rem, 6vw, 4.5rem);
+  --text-hero: clamp(3.25rem, 8vw, 6rem);
+
+  /* Spacing */
+  --space-xs: 0.5rem;
+  --space-sm: 0.75rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-2xl: 3rem;
+  --space-3xl: 5rem;
+  --space-4xl: 8rem;
+
+  /* Motion */
+  --ease-out-expo: cubic-bezier(0.19, 1, 0.22, 1);
+  --ease-in-out: cubic-bezier(0.76, 0, 0.24, 1);
+  --duration-fast: 200ms;
+  --duration-base: 400ms;
+  --duration-slow: 700ms;
+
+  /* Layout */
+  --max-width: 1280px;
+  --nav-h: 4rem;
+}
+
+/* ══════════════════════════════════════════
+   RESET & BASE
+   ══════════════════════════════════════════ */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-weight: 400;
+  font-size: var(--text-base);
+  line-height: 1.7;
+  color: var(--machine-gray);
+  background: var(--obsidian);
+  overflow-x: hidden;
+}
+
+a { color: inherit; text-decoration: none; }
+img { display: block; max-width: 100%; }
+ul { list-style: none; }
+
+/* Focus */
+:focus-visible {
+  outline: 2px solid var(--burnished-brass);
+  outline-offset: 3px;
+}
+
+/* Selection */
+::selection {
+  background: var(--burnished-brass);
+  color: var(--obsidian);
+}
+
+/* ══════════════════════════════════════════
+   TYPOGRAPHY UTILITIES
+   ══════════════════════════════════════════ */
+
+.display, .hero-title {
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  line-height: 0.95;
+  color: var(--pure-white);
+}
+
+.hero-title {
+  font-size: var(--text-hero);
+}
+
+.section-label {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: var(--text-xs);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--burnished-brass);
+}
+
+.spec {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: var(--text-sm);
+  color: var(--burnished-brass);
+  letter-spacing: 0.05em;
+}
+
+/* ══════════════════════════════════════════
+   NAVIGATION
+   ══════════════════════════════════════════ */
+
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  height: var(--nav-h);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 var(--space-2xl);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  background: rgba(12, 14, 16, 0.75);
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+  transition: background var(--duration-base);
+}
+
+.nav-brand {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.nav-logo {
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 700;
+  font-size: var(--text-xl);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--pure-white);
+}
+
+.nav-logo span {
+  color: var(--burnished-brass);
+}
+
+.nav-links {
+  display: flex;
+  gap: var(--space-2xl);
+  align-items: center;
+}
+
+.nav-links a {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--machine-gray);
+  transition: color var(--duration-fast);
+  position: relative;
+}
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--burnished-brass);
+  transition: width var(--ease-out-expo) var(--duration-base);
+}
+
+.nav-links a:hover,
+.nav-links a:focus-visible {
+  color: var(--pure-white);
+}
+
+.nav-links a:hover::after,
+.nav-links a:focus-visible::after {
+  width: 100%;
+}
+
+/* Mobile menu */
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: var(--space-xs);
+}
+
+.nav-toggle span {
+  display: block;
+  width: 24px;
+  height: 1.5px;
+  background: var(--pure-white);
+  transition: transform var(--ease-out-expo) var(--duration-base);
+}
+
+@media (max-width: 768px) {
+  .nav { padding: 0 var(--space-lg); }
+  .nav-links { display: none; }
+  .nav-toggle { display: flex; }
+  .nav-links.open {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: var(--nav-h);
+    left: 0;
+    right: 0;
+    background: rgba(12, 14, 16, 0.95);
+    backdrop-filter: blur(16px);
+    padding: var(--space-xl);
+    gap: var(--space-lg);
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+  }
+}
+
+/* ══════════════════════════════════════════
+   HERO
+   ══════════════════════════════════════════ */
+
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: var(--space-4xl) var(--space-2xl) var(--space-3xl);
+  background:
+    radial-gradient(ellipse 80% 60% at 50% 40%, rgba(200,150,106,0.06) 0%, transparent 70%),
+    radial-gradient(ellipse 60% 40% at 80% 20%, rgba(200,150,106,0.03) 0%, transparent 60%),
+    var(--obsidian);
+  position: relative;
+  overflow: hidden;
+}
+
+/* The Machined Edge — signature element */
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(200,150,106,0.3) 20%,
+    var(--burnished-brass) 50%,
+    rgba(200,150,106,0.3) 80%,
+    transparent 100%
+  );
+  animation: bladeEdge 4s var(--ease-in-out) infinite;
+  opacity: 0.4;
+}
+
+@keyframes bladeEdge {
+  0%, 100% { transform: scaleX(0.7); opacity: 0.2; }
+  50% { transform: scaleX(1); opacity: 0.5; }
+}
+
+.hero-content {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-3xl);
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+.hero-text {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xl);
+}
+
+.hero-kicker {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+}
+
+.hero-kicker::before {
+  content: '';
+  width: 2rem;
+  height: 1px;
+  background: var(--burnished-brass);
+}
+
+.hero-title {
+  max-width: 14ch;
+}
+
+.hero-title em {
+  font-style: normal;
+  color: var(--burnished-brass);
+  position: relative;
+}
+
+.hero-desc {
+  font-size: var(--text-lg);
+  font-weight: 300;
+  line-height: 1.8;
+  color: rgba(139,150,158,0.8);
+  max-width: 42ch;
+}
+
+.hero-stats {
+  display: flex;
+  gap: var(--space-2xl);
+  margin-top: var(--space-md);
+}
+
+.hero-stat-value {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: var(--text-3xl);
+  font-weight: 700;
+  color: var(--pure-white);
+  line-height: 1;
+}
+
+.hero-stat-label {
+  font-size: var(--text-xs);
+  color: var(--machine-gray);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-top: var(--space-xs);
+}
+
+/* Hero Visual */
+.hero-visual {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-orb {
+  width: 28rem;
+  height: 28rem;
+  max-width: 70vw;
+  max-height: 70vw;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 35% 35%, rgba(200,150,106,0.12) 0%, transparent 50%),
+    radial-gradient(circle at center, rgba(25,28,31,0.8) 0%, transparent 100%);
+  border: 1px solid rgba(200,150,106,0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: orbFloat 8s var(--ease-in-out) infinite;
+  position: relative;
+}
+
+@keyframes orbFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+
+.hero-orb-text {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: var(--text-3xl);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  color: var(--burnished-brass);
+  text-align: center;
+  line-height: 1.2;
+}
+
+.hero-orb-text small {
+  display: block;
+  font-size: var(--text-xs);
+  letter-spacing: 0.6em;
+  color: var(--machine-gray);
+  margin-top: var(--space-xs);
+}
+
+/* blade-cut patterns around the orb */
+.hero-orb::before,
+.hero-orb::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  border: 1px solid rgba(200,150,106,0.08);
+  animation: orbitExpand 6s var(--ease-in-out) infinite;
+}
+
+.hero-orb::before {
+  width: 110%;
+  height: 110%;
+}
+
+.hero-orb::after {
+  width: 120%;
+  height: 120%;
+  animation-delay: 2s;
+}
+
+@keyframes orbitExpand {
+  0%, 100% { opacity: 0.3; transform: scale(1); }
+  50% { opacity: 0.7; transform: scale(1.02); }
+}
+
+@media (max-width: 768px) {
+  .hero { padding: 6rem var(--space-lg) var(--space-3xl); }
+  .hero-content {
+    grid-template-columns: 1fr;
+    gap: var(--space-2xl);
+  }
+  .hero-orb {
+    width: 14rem;
+    height: 14rem;
+    max-width: 60vw;
+    max-height: 60vw;
+  }
+  .hero-stats {
+    gap: var(--space-xl);
+    flex-wrap: wrap;
+  }
+}
+
+/* ══════════════════════════════════════════
+   SECTION COMMONS
+   ══════════════════════════════════════════ */
+
+.section {
+  padding: var(--space-4xl) var(--space-2xl);
+}
+
+.section-header {
+  max-width: var(--max-width);
+  margin: 0 auto var(--space-3xl);
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--space-lg);
+  flex-wrap: wrap;
+}
+
+.section-title {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: var(--text-3xl);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  line-height: 1;
+  color: var(--pure-white);
+}
+
+.section-subtitle {
+  font-size: var(--text-sm);
+  color: var(--machine-gray);
+  max-width: 36ch;
+  font-weight: 300;
+}
+
+/* ══════════════════════════════════════════
+   PRODUCTS
+   ══════════════════════════════════════════ */
+
+.products-section {
+  background: var(--forged-steel);
+}
+
+.products-grid {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-lg);
+}
+
+.product-card {
+  background: var(--obsidian);
+  border: 1px solid rgba(255,255,255,0.04);
+  padding: var(--space-2xl);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+  position: relative;
+  overflow: hidden;
+  transition: border-color var(--duration-base), transform var(--ease-out-expo) var(--duration-base);
+  cursor: default;
+}
+
+.product-card:hover,
+.product-card:focus-within {
+  border-color: rgba(200,150,106,0.25);
+  transform: translateY(-4px);
+}
+
+/* Blade-pattern geometric accent per card */
+.product-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 120px;
+  height: 120px;
+  opacity: 0;
+  transition: opacity var(--ease-out-expo) var(--duration-slow);
+  pointer-events: none;
+}
+
+.product-card:nth-child(1)::before {
+  /* Foil shaver: concentric circles */
+  background:
+    radial-gradient(circle at 65% 35%, transparent 8px, rgba(200,150,106,0.12) 8px, rgba(200,150,106,0.12) 9px, transparent 9px),
+    radial-gradient(circle at 65% 35%, transparent 22px, rgba(200,150,106,0.08) 22px, rgba(200,150,106,0.08) 23px, transparent 23px),
+    radial-gradient(circle at 65% 35%, transparent 36px, rgba(200,150,106,0.05) 36px, rgba(200,150,106,0.05) 37px, transparent 37px);
+}
+
+.product-card:nth-child(2)::before {
+  /* Rotary shaver: offset circle grid */
+  background:
+    radial-gradient(circle at 50% 30%, rgba(200,150,106,0.15) 3px, transparent 3px),
+    radial-gradient(circle at 72% 30%, rgba(200,150,106,0.15) 3px, transparent 3px),
+    radial-gradient(circle at 61% 50%, rgba(200,150,106,0.15) 3px, transparent 3px),
+    radial-gradient(circle at 50% 70%, rgba(200,150,106,0.1) 3px, transparent 3px),
+    radial-gradient(circle at 72% 70%, rgba(200,150,106,0.1) 3px, transparent 3px);
+}
+
+.product-card:nth-child(3)::before {
+  /* Hair clipper: zigzag teeth pattern */
+  background:
+    linear-gradient(135deg, transparent 45%, rgba(200,150,106,0.1) 45%, rgba(200,150,106,0.1) 48%, transparent 48%),
+    linear-gradient(135deg, transparent 38%, rgba(200,150,106,0.1) 38%, rgba(200,150,106,0.1) 41%, transparent 41%),
+    linear-gradient(135deg, transparent 52%, rgba(200,150,106,0.08) 52%, rgba(200,150,106,0.08) 55%, transparent 55%),
+    linear-gradient(135deg, transparent 31%, rgba(200,150,106,0.08) 31%, rgba(200,150,106,0.08) 34%, transparent 34%);
+}
+
+.product-card:nth-child(4)::before {
+  /* Electric shaver: floating head arcs */
+  background:
+    radial-gradient(ellipse 80% 40% at 50% 30%, rgba(200,150,106,0.12) 0%, transparent 60%),
+    radial-gradient(ellipse 30% 60% at 40% 50%, rgba(200,150,106,0.08) 0%, transparent 50%),
+    radial-gradient(ellipse 30% 60% at 60% 50%, rgba(200,150,106,0.08) 0%, transparent 50%);
+}
+
+.product-card:hover::before,
+.product-card:focus-within::before {
+  opacity: 1;
+}
+
+.product-number {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: var(--text-xs);
+  color: var(--burnished-brass);
+  letter-spacing: 0.2em;
+}
+
+.product-name {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: var(--text-2xl);
+  font-weight: 600;
+  color: var(--pure-white);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  line-height: 1.15;
+}
+
+.product-features {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  flex: 1;
+}
+
+.product-feature {
+  font-size: var(--text-sm);
+  color: var(--machine-gray);
+  line-height: 1.6;
+  padding-left: var(--space-lg);
+  position: relative;
+  font-weight: 300;
+}
+
+.product-feature::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.65em;
+  width: 8px;
+  height: 1px;
+  background: var(--burnished-brass);
+  transition: width var(--ease-out-expo) var(--duration-base);
+}
+
+.product-card:hover .product-feature::before {
+  width: 16px;
+}
+
+.product-meta {
+  display: flex;
+  gap: var(--space-lg);
+  padding-top: var(--space-md);
+  border-top: 1px solid rgba(255,255,255,0.05);
+  flex-wrap: wrap;
+}
+
+.product-meta-item {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.product-meta-value {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: var(--text-sm);
+  color: var(--burnished-brass);
+}
+
+.product-meta-label {
+  font-size: var(--text-xs);
+  color: var(--machine-gray);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+@media (max-width: 768px) {
+  .section { padding: var(--space-3xl) var(--space-lg); }
+  .products-grid {
+    grid-template-columns: 1fr;
+  }
+  .product-card {
+    padding: var(--space-xl);
+  }
+}
+
+/* ══════════════════════════════════════════
+   ABOUT — BRAND STORY
+   ══════════════════════════════════════════ */
+
+.about-section {
+  background: var(--obsidian);
+  position: relative;
+  overflow: hidden;
+}
+
+.about-section::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -30%;
+  width: 80%;
+  height: 200%;
+  background:
+    radial-gradient(ellipse at center, rgba(200,150,106,0.03) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.about-grid {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-4xl);
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+.about-label {
+  display: inline-block;
+  margin-bottom: var(--space-lg);
+}
+
+.about-title {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: var(--text-3xl);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  line-height: 1;
+  color: var(--pure-white);
+  margin-bottom: var(--space-xl);
+}
+
+.about-text {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.about-text p {
+  font-size: var(--text-base);
+  line-height: 1.9;
+  color: rgba(139,150,158,0.85);
+  font-weight: 300;
+  max-width: 48ch;
+}
+
+.about-text p strong {
+  color: var(--burnished-brass);
+  font-weight: 500;
+}
+
+/* Brand values */
+.about-values {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  border: 1px solid rgba(255,255,255,0.06);
+  background: var(--forged-steel);
+}
+
+.about-value {
+  padding: var(--space-xl);
+  text-align: center;
+  border-right: 1px solid rgba(255,255,255,0.04);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  transition: background var(--duration-base);
+}
+
+.about-value:last-child {
+  border-right: none;
+}
+
+.about-value:hover {
+  background: rgba(200,150,106,0.04);
+}
+
+.about-value-icon {
+  font-size: 1.5rem;
+  margin-bottom: var(--space-xs);
+}
+
+.about-value-title {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: var(--text-lg);
+  font-weight: 600;
+  color: var(--pure-white);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.about-value-desc {
+  font-size: var(--text-xs);
+  color: var(--machine-gray);
+  line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-2xl);
+  }
+  .about-values {
+    grid-template-columns: 1fr;
+  }
+  .about-value {
+    border-right: none;
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+  }
+}
+
+/* ══════════════════════════════════════════
+   PHILOSOPHY STRIP
+   ══════════════════════════════════════════ */
+
+.philosophy {
+  background: var(--forged-steel);
+  padding: var(--space-3xl) var(--space-2xl);
+  text-align: center;
+  border-top: 1px solid rgba(255,255,255,0.04);
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+}
+
+.philosophy-quote {
+  max-width: 48ch;
+  margin: 0 auto;
+  font-family: 'Rajdhani', sans-serif;
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  color: var(--pure-white);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  line-height: 1.4;
+}
+
+.philosophy-quote em {
+  font-style: normal;
+  color: var(--burnished-brass);
+}
+
+/* ══════════════════════════════════════════
+   FOOTER
+   ══════════════════════════════════════════ */
+
+.footer {
+  background: var(--obsidian);
+  padding: var(--space-3xl) var(--space-2xl) var(--space-xl);
+  border-top: 1px solid rgba(255,255,255,0.04);
+}
+
+.footer-grid {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: var(--space-2xl);
+  flex-wrap: wrap;
+  margin-bottom: var(--space-2xl);
+}
+
+.footer-brand {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.footer-brand-name {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: var(--text-xl);
+  font-weight: 700;
+  color: var(--pure-white);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.footer-brand-name span {
+  color: var(--burnished-brass);
+}
+
+.footer-brand-sub {
+  font-size: var(--text-xs);
+  color: var(--machine-gray);
+}
+
+.footer-links {
+  display: flex;
+  gap: var(--space-2xl);
+  flex-wrap: wrap;
+}
+
+.footer-link-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.footer-link-title {
+  font-size: var(--text-xs);
+  color: var(--machine-gray);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: var(--space-xs);
+}
+
+.footer-link-group a {
+  font-size: var(--text-sm);
+  color: rgba(139,150,158,0.7);
+  transition: color var(--duration-fast);
+}
+
+.footer-link-group a:hover {
+  color: var(--burnished-brass);
+}
+
+.footer-bottom {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding-top: var(--space-lg);
+  border-top: 1px solid rgba(255,255,255,0.04);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space-md);
+}
+
+.footer-copy {
+  font-size: var(--text-xs);
+  color: rgba(139,150,158,0.5);
+}
+
+@media (max-width: 768px) {
+  .footer-grid { flex-direction: column; }
+  .footer-bottom { flex-direction: column; align-items: flex-start; }
+}
+
+/* ══════════════════════════════════════════
+   SCROLL REVEAL ANIMATIONS
+   ══════════════════════════════════════════ */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity var(--duration-slow) var(--ease-out-expo),
+    transform var(--duration-slow) var(--ease-out-expo);
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Stagger for cards */
+.product-card:nth-child(1) { transition-delay: 0ms; }
+.product-card:nth-child(2) { transition-delay: 0ms; }
+.product-card:nth-child(3) { transition-delay: 0ms; }
+.product-card:nth-child(4) { transition-delay: 0ms; }
+
+/* ══════════════════════════════════════════
+   REDUCED MOTION
+   ══════════════════════════════════════════ */
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  .reveal { opacity: 1; transform: none; }
+}
+</style>
+</head>
+<body>
+
+<!-- ═══════════════ NAVIGATION ═══════════════ -->
+<nav class="nav" role="navigation" aria-label="主导航">
+  <a href="#" class="nav-brand" aria-label="MENSURE 首页">
+    <span class="nav-logo">MEN<span>SURE</span></span>
+  </a>
+  <button class="nav-toggle" aria-label="菜单" aria-expanded="false" onclick="document.querySelector('.nav-links').classList.toggle('open'); this.setAttribute('aria-expanded', document.querySelector('.nav-links').classList.contains('open'));">
+    <span></span><span></span><span></span>
+  </button>
+  <div class="nav-links">
+    <a href="#products">产品</a>
+    <a href="#about">关于我们</a>
+    <a href="#contact">联系</a>
+  </div>
+</nav>
+
+<!-- ═══════════════ HERO ═══════════════ -->
+<section class="hero" aria-labelledby="hero-heading">
+  <div class="hero-content">
+    <div class="hero-text reveal">
+      <div class="hero-kicker">
+        <span class="section-label">广州三曜电商有限公司</span>
+      </div>
+      <h1 id="hero-heading" class="hero-title">
+        精密理容<br><em>型格</em>自定
+      </h1>
+      <p class="hero-desc">
+        MENSURE 将精密工程融入男士理容工具，<br>
+        让每一次修剪，都成为对自我的精雕细琢。
+      </p>
+      <div class="hero-stats">
+        <div>
+          <div class="hero-stat-value">4</div>
+          <div class="hero-stat-label">旗舰系列</div>
+        </div>
+        <div>
+          <div class="hero-stat-value">7,500</div>
+          <div class="hero-stat-label">最高 RPM</div>
+        </div>
+        <div>
+          <div class="hero-stat-value">120<span style="font-size:0.5em;font-weight:400;">min</span></div>
+          <div class="hero-stat-label">超长续航</div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-visual reveal">
+      <div class="hero-orb" aria-hidden="true">
+        <div class="hero-orb-text">
+          MENSURE
+          <small>Since 2023</small>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ PRODUCTS ═══════════════ -->
+<section id="products" class="section products-section" aria-labelledby="products-heading">
+  <div class="section-header reveal">
+    <div>
+      <span class="section-label">Products</span>
+      <h2 id="products-heading" class="section-title">旗舰产品系列</h2>
+    </div>
+    <p class="section-subtitle">
+      每一款产品都经过精密调校，从刀片到马达，<br>从材质到交互，只为无可挑剔的理容体验。
+    </p>
+  </div>
+
+  <div class="products-grid">
+
+    <!-- Product 1: Foil Shaver & Beard Trimmer Combo -->
+    <article class="product-card reveal" tabindex="0" aria-labelledby="prod1-name">
+      <span class="product-number">01</span>
+      <h3 id="prod1-name" class="product-name">
+        箔式剃须刀 &amp; 胡须修剪器组合
+      </h3>
+      <div class="product-features">
+        <p class="product-feature">超薄箔网刀头，双浮动刀头贴合面部轮廓，顺滑零刺激</p>
+        <p class="product-feature">3 档转速可调（6500 / 7000 / 7500 RPM），LED 实时显示</p>
+        <p class="product-feature">IPX5 防水，干湿双剃，刀头可拆卸水洗</p>
+        <p class="product-feature">90 分钟续航，Type-C 充电，配备充电展示底座</p>
+      </div>
+      <div class="product-meta">
+        <div class="product-meta-item">
+          <span class="product-meta-value">7500 RPM</span>
+          <span class="product-meta-label">最高转速</span>
+        </div>
+        <div class="product-meta-item">
+          <span class="product-meta-value">90 min</span>
+          <span class="product-meta-label">续航</span>
+        </div>
+        <div class="product-meta-item">
+          <span class="product-meta-value">IPX5</span>
+          <span class="product-meta-label">防水</span>
+        </div>
+      </div>
+    </article>
+
+    <!-- Product 2: Rotary Shaver & Beard Trimmer Combo -->
+    <article class="product-card reveal" tabindex="0" aria-labelledby="prod2-name">
+      <span class="product-number">02</span>
+      <h3 id="prod2-name" class="product-name">
+        旋转式剃须刀 &amp; 胡须修剪器组合
+      </h3>
+      <div class="product-features">
+        <p class="product-feature">4D 柔性浮动刀头，无缝贴合面部角度，无死角剃净</p>
+        <p class="product-feature">磁吸可拆卸刀头，一秒拆装，双环刀网高效覆盖</p>
+        <p class="product-feature">LCD 清晰显示电量与使用状态，防滑握柄设计</p>
+        <p class="product-feature">120 分钟超长续航，Type-C 快充，旅行锁 + 充电底座</p>
+      </div>
+      <div class="product-meta">
+        <div class="product-meta-item">
+          <span class="product-meta-value">4D</span>
+          <span class="product-meta-label">浮动刀头</span>
+        </div>
+        <div class="product-meta-item">
+          <span class="product-meta-value">120 min</span>
+          <span class="product-meta-label">续航</span>
+        </div>
+        <div class="product-meta-item">
+          <span class="product-meta-value">IPX5</span>
+          <span class="product-meta-label">防水</span>
+        </div>
+      </div>
+    </article>
+
+    <!-- Product 3: Professional Hair Clippers -->
+    <article class="product-card reveal" tabindex="0" aria-labelledby="prod3-name">
+      <span class="product-number">03</span>
+      <h3 id="prod3-name" class="product-name">
+        专业理发器 · 涂鸦限定版
+      </h3>
+      <div class="product-features">
+        <p class="product-feature">大胆涂鸦设计，锌合金机身 + 橡胶防滑握柄，风格与耐用兼备</p>
+        <p class="product-feature">7500RPM 高速马达，金属+橡胶双重减震，平稳低噪</p>
+        <p class="product-feature">零间隙刀头，5 档微调 + 10 色标限位梳，从日常修剪到渐变雕刻</p>
+        <p class="product-feature">5 小时续航，Type-C 快充，附赠收纳包及全套配件</p>
+      </div>
+      <div class="product-meta">
+        <div class="product-meta-item">
+          <span class="product-meta-value">7500 RPM</span>
+          <span class="product-meta-label">马达转速</span>
+        </div>
+        <div class="product-meta-item">
+          <span class="product-meta-value">5 hrs</span>
+          <span class="product-meta-label">续航</span>
+        </div>
+        <div class="product-meta-item">
+          <span class="product-meta-value">10</span>
+          <span class="product-meta-label">限位梳</span>
+        </div>
+      </div>
+    </article>
+
+    <!-- Product 4: Electric Shaver -->
+    <article class="product-card reveal" tabindex="0" aria-labelledby="prod4-name">
+      <span class="product-number">04</span>
+      <h3 id="prod4-name" class="product-name">
+        电动剃须刀 · 弹出式鬓角刀
+      </h3>
+      <div class="product-features">
+        <p class="product-feature">多角度浮动三刀头，0.01mm 纳米刀片，9000RPM 静音马达</p>
+        <p class="product-feature">IPX7 级防水，可 30 分钟浸泡，磁吸弹开刀头即冲即净</p>
+        <p class="product-feature">LED 仪表盘：电量显示 + 清洁提醒 + 旅行锁 + 低电警报</p>
+        <p class="product-feature">90 天电池续航（每次 60 分钟），720mm 跌落测试认证</p>
+      </div>
+      <div class="product-meta">
+        <div class="product-meta-item">
+          <span class="product-meta-value">9000 RPM</span>
+          <span class="product-meta-label">马达转速</span>
+        </div>
+        <div class="product-meta-item">
+          <span class="product-meta-value">90 天</span>
+          <span class="product-meta-label">电池续航</span>
+        </div>
+        <div class="product-meta-item">
+          <span class="product-meta-value">IPX7</span>
+          <span class="product-meta-label">防水等级</span>
+        </div>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<!-- ═══════════════ PHILOSOPHY ═══════════════ -->
+<div class="philosophy" aria-label="品牌理念">
+  <p class="philosophy-quote reveal">
+    理容不是任务，<br>是每天的<em>仪式</em>与<em>表达</em>。
+  </p>
+</div>
+
+<!-- ═══════════════ ABOUT ═══════════════ -->
+<section id="about" class="section about-section" aria-labelledby="about-heading">
+  <div class="about-grid">
+    <div class="reveal">
+      <span class="section-label about-label">About</span>
+      <h2 id="about-heading" class="about-title">关于三曜</h2>
+      <div class="about-text">
+        <p>
+          广州三曜电商有限公司创立于 2023 年，旗下品牌 <strong>MENSURE</strong> 致力于为现代男性
+          提供<strong>精密、可靠、有风格</strong>的个人理容工具。
+        </p>
+        <p>
+          我们认为，一把好的理容工具，应当像精密仪器一样准确，像艺术品一样耐看。
+          MENSURE 的每一款产品，从马达转速到刀片间隙，从材质触感到视觉设计，
+          都经过反复雕琢——因为我们相信，<strong>对细节的执着，才是品牌真正的护城河</strong>。
+        </p>
+        <p>
+          从涂鸦限定版理发器到磁吸收纳的剃须组合，MENSURE 不只是工具，
+          它是你对自己生活方式的宣言。
+        </p>
+      </div>
+    </div>
+    <div class="reveal">
+      <div class="about-values">
+        <div class="about-value">
+          <span class="about-value-icon" aria-hidden="true">&#x2699;</span>
+          <span class="about-value-title">精密工程</span>
+          <span class="about-value-desc">每一颗马达、每一片刀网都经过严格校准与测试</span>
+        </div>
+        <div class="about-value">
+          <span class="about-value-icon" aria-hidden="true">&#x25C6;</span>
+          <span class="about-value-title">都市美学</span>
+          <span class="about-value-desc">涂鸦、金属、工业设计——风格与功能从不妥协</span>
+        </div>
+        <div class="about-value">
+          <span class="about-value-icon" aria-hidden="true">&#x2606;</span>
+          <span class="about-value-title">用户至上</span>
+          <span class="about-value-desc">Type-C 通用充电、旅行锁、防水设计，让体验无缝</span>
+        </div>
+        <div class="about-value">
+          <span class="about-value-icon" aria-hidden="true">&#x25C9;</span>
+          <span class="about-value-title">持久品质</span>
+          <span class="about-value-desc">锌合金机身、跌落测试、长续航电池——经得起时间考验</span>
+        </div>
+        <div class="about-value">
+          <span class="about-value-icon" aria-hidden="true">&#x2601;</span>
+          <span class="about-value-title">全球视野</span>
+          <span class="about-value-desc">立足中国，面向全球市场，打造国际级理容品牌</span>
+        </div>
+        <div class="about-value">
+          <span class="about-value-icon" aria-hidden="true">&#x2611;</span>
+          <span class="about-value-title">创新驱动</span>
+          <span class="about-value-desc">磁吸刀头、智能 LED、极速快充——不断突破行业边界</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ FOOTER ═══════════════ -->
+<footer id="contact" class="footer" role="contentinfo">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <span class="footer-brand-name">MEN<span>SURE</span></span>
+      <span class="footer-brand-sub">广州三曜电商有限公司旗下品牌</span>
+    </div>
+    <div class="footer-links">
+      <div class="footer-link-group">
+        <span class="footer-link-title">产品</span>
+        <a href="#products">箔式剃须刀</a>
+        <a href="#products">旋转式剃须刀</a>
+        <a href="#products">专业理发器</a>
+        <a href="#products">电动剃须刀</a>
+      </div>
+      <div class="footer-link-group">
+        <span class="footer-link-title">关于</span>
+        <a href="#about">品牌故事</a>
+        <a href="#about">品牌理念</a>
+      </div>
+      <div class="footer-link-group">
+        <span class="footer-link-title">联系</span>
+        <a href="https://www.amazon.com/s?me=A3T0M5YWOZQG0L" target="_blank" rel="noopener">Amazon 旗舰店</a>
+        <span style="font-size:var(--text-sm);color:var(--machine-gray)">广州三曜电商有限公司</span>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span class="footer-copy">&copy; 2023–2026 广州三曜电商有限公司. All rights reserved.</span>
+    <span class="footer-copy">MENSURE&reg; is a registered trademark.</span>
+  </div>
+</footer>
+
+<!-- ═══════════════ SCROLL REVEAL ═══════════════ -->
+<script>
+(function() {
+  'use strict';
+
+  /* --- Intersection Observer for scroll reveals --- */
+  const observerOptions = {
+    root: null,
+    rootMargin: '0px 0px -60px 0px',
+    threshold: 0.1
+  };
+
+  const observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, observerOptions);
+
+  document.querySelectorAll('.reveal').forEach(function(el) {
+    observer.observe(el);
+  });
+
+  /* --- Nav scroll state --- */
+  let lastScroll = 0;
+  const nav = document.querySelector('.nav');
+
+  window.addEventListener('scroll', function() {
+    const now = window.scrollY;
+    if (now > 80) {
+      nav.style.background = 'rgba(12,14,16,0.88)';
+    } else {
+      nav.style.background = 'rgba(12,14,16,0.75)';
+    }
+    lastScroll = now;
+  }, { passive: true });
+
+  /* --- Close mobile nav on link click --- */
+  document.querySelectorAll('.nav-links a').forEach(function(link) {
+    link.addEventListener('click', function() {
+      var links = document.querySelector('.nav-links');
+      var toggle = document.querySelector('.nav-toggle');
+      if (links.classList.contains('open')) {
+        links.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+      }
+    });
+  });
+})();
+</script>
+
+</body>
+</html>
